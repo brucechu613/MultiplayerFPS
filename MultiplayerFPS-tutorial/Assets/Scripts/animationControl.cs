@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class animationControl : MonoBehaviour
+public class animationControl : NetworkBehaviour
 {
-    private Animator animator;
     float velocityX = 0.0f;
     float velocityZ = 0.0f;
     float velocityY = 0.0f;
@@ -13,17 +12,15 @@ public class animationControl : MonoBehaviour
     bool isReloading = false;
     [SerializeField] float acceleration = 2.0f;
     [SerializeField] float deceleration = 2.0f;
+    [Header("References")]
+    [SerializeField] CharacterController controller = null;
+    [SerializeField]  Animator animator = null;
     float maxVelocity = 2.0f;
-
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (!hasAuthority) return;
         //walk accelartion
         if (Input.GetKey(KeyCode.W) && velocityZ < maxVelocity)
         {
