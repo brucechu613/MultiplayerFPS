@@ -3,6 +3,7 @@
 
 using UnityEngine;
 using System; //allows string.Split to be used with SplitStringOptions.none
+using UnityEngine.UI;
 using System.Collections;
 using DatabaseControl;//This line is always needed for any C# script using the database control requests. See PDF documentation for more information
 //use 'import DatabaseControl;' if you are using JS
@@ -16,17 +17,17 @@ public class LoginMenu : MonoBehaviour {
 	public GameObject loading_object;
 	
 	//these are the login input fields:
-	public UnityEngine.UI.InputField input_login_username;
-	public UnityEngine.UI.InputField input_login_password;
+	public InputField input_login_username;
+	public InputField input_login_password;
 	
 	//these are the register input fields:
-	public UnityEngine.UI.InputField input_register_username;
-	public UnityEngine.UI.InputField input_register_password;
-	public UnityEngine.UI.InputField input_register_confirmPassword;
+	public InputField input_register_username;
+	public InputField input_register_password;
+	public InputField input_register_confirmPassword;
 	
 	//red error UI Texts:
-	public UnityEngine.UI.Text login_error;
-	public UnityEngine.UI.Text register_error;
+	public Text login_error;
+	public Text register_error;
 	
 	////These variables cannot be set in the Inspector:
 	
@@ -37,19 +38,24 @@ public class LoginMenu : MonoBehaviour {
 
 	bool isDatabaseSetup = true;
 
-	void Start () {
+    void Awake()
+    {
+        ResetAllUIElements();
+    }
 
-		//this checks whether the database is setup. It is used to prevent errors for users who try to use the demos
-		//without having setup a database.
-		//You don't need to use this bool as it will work without it as long as the database has been setup
-		TextAsset datafile = Resources.Load ("data") as TextAsset;
-		string[] splitdatafile = datafile.text.Split (new string[] { "-" }, StringSplitOptions.None);
-		if (splitdatafile [0] == "0") {
-			isDatabaseSetup = false;
-			Debug.Log ("These demos will not work out of the box. You need to setup a database first for it to work. Please read the Setup section of the PDF for more information");
-		} else {
-			isDatabaseSetup = true;
-		}
+    void ResetAllUIElements()
+    {
+        //This resets all of the UI elements. It clears all the strings in the input fields and any errors being displayed
+        input_login_username.text = "";
+        input_login_password.text = "";
+        input_register_username.text = "";
+        input_register_password.text = "";
+        input_register_confirmPassword.text = "";
+    }
+
+    void Start () {
+
+        isDatabaseSetup = true;
 
 		//sets error Texts string to blank
 		blankErrors();
@@ -139,12 +145,12 @@ public class LoginMenu : MonoBehaviour {
 
 		if (isDatabaseSetup == true) {
 		
-			IEnumerator e = DC.Login (username, password);
+			IEnumerator e = DCF.Login (username, password);
 			while (e.MoveNext()) {
 				yield return e.Current;
 			}
-			WWW returned = e.Current as WWW;
-			if (returned.text == "Success") {
+			string response = e.Current as string;
+			if (response == "Success") {
 				//Password was correct
 				blankErrors ();
 				part = 2; //show logged in UI
@@ -154,22 +160,22 @@ public class LoginMenu : MonoBehaviour {
 
 				UserAccountManager.instance.LogIn(username, password);
 			}
-			if (returned.text == "incorrectUser") {
+			if (response == "UserError") {
 				//Account with username not found in database
 				login_error.text = "Username not found";
 				part = 0; //back to login UI
 			}
-			if (returned.text == "incorrectPass") {
+			if (response == "PassError") {
 				//Account with username found, but password incorrect
 				part = 0; //back to login UI
 				login_error.text = "Incorrect Password";
 			}
-			if (returned.text == "ContainsUnsupportedSymbol") {
+			if (response == "ContainsUnsupportedSymbol") {
 				//One of the parameters contained a - symbol
 				part = 0; //back to login UI
 				login_error.text = "Unsupported Symbol '-'";
 			}
-			if (returned.text == "Error") {
+			if (response == "Error") {
 				//Account Not Created, another error occurred
 				part = 0; //back to login UI
 				login_error.text = "Database Error. Try again later.";
@@ -247,13 +253,13 @@ public class LoginMenu : MonoBehaviour {
 
 		if (isDatabaseSetup == true) {
 		
-			IEnumerator ee = DC.RegisterUser(username, password, data);
-			while(ee.MoveNext()) {
-				yield return ee.Current;
+			IEnumerator e = DCF.RegisterUser(username, password, data);
+			while(e.MoveNext()) {
+				yield return e.Current;
 			}
-			WWW returnedd = ee.Current as WWW;
+			string response = e.Current as string;
 			
-			if (returnedd.text == "Success") {
+			if (response == "Success") {
 				//Account created successfully
 				
 				blankErrors();
@@ -264,17 +270,17 @@ public class LoginMenu : MonoBehaviour {
 
 				UserAccountManager.instance.LogIn(username, password);
 			}
-			if (returnedd.text == "usernameInUse") {
+			if (response == "UserError") {
 				//Account Not Created due to username being used on another Account
 				part = 1;
 				register_error.text = "Username Unavailable. Try another.";
 			}
-			if (returnedd.text == "ContainsUnsupportedSymbol") {
+			if (response == "ContainsUnsupportedSymbol") {
 				//Account Not Created as one of the parameters contained a - symbol
 				part = 1;
 				register_error.text = "Unsupported Symbol '-'";
 			}
-			if (returnedd.text == "Error") {
+			if (response == "Error") {
 				//Account Not Created, another error occurred
 				part = 1;
 				login_error.text = "Database Error. Try again later.";
