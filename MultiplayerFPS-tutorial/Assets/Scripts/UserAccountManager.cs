@@ -97,13 +97,13 @@ public class UserAccountManager : MonoBehaviour {
 	{
 		string data = "ERROR";
 
-		IEnumerator eeee = DCF.GetUserData(username, password);
-		while (eeee.MoveNext())
+		IEnumerator e = DCF.GetUserData(username, password);
+		while (e.MoveNext())
 		{
-			yield return eeee.Current;
+			yield return e.Current;
 		}
-		WWW returnedddd = eeee.Current as WWW;
-		if (returnedddd.text == "Error")
+		string returnedddd = e.Current as string;
+		if (returnedddd == "Error")
 		{
 			//Error occurred. For more information of the error, DC.Login could
 			//be used with the same username and password
@@ -111,7 +111,7 @@ public class UserAccountManager : MonoBehaviour {
 		}
 		else
 		{
-			if (returnedddd.text == "ContainsUnsupportedSymbol")
+			if (returnedddd == "ContainsUnsupportedSymbol")
 			{
 				//One of the parameters contained a - symbol
 				Debug.Log("Get Data Error: Contains Unsupported Symbol '-'");
@@ -119,7 +119,7 @@ public class UserAccountManager : MonoBehaviour {
 			else
 			{
 				//Data received in returned.text variable
-				string DataRecieved = returnedddd.text;
+				string DataRecieved = returnedddd;
 				data = DataRecieved;
 			}
 		}
