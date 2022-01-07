@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 public class animationControl : MonoBehaviour
 {
-    Animator animator;
+    private Animator animator;
     float velocityX = 0.0f;
     float velocityZ = 0.0f;
     float velocityY = 0.0f;
