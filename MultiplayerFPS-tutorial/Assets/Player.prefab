@@ -432,7 +432,8 @@ MonoBehaviour:
     maxBullets: 20
     bullets: 20
     reloadTime: 1
-    graphics: {fileID: 199728, guid: ed705c92b28f65f4f99f5b76f9f51ecc, type: 3}
+    graphics: {fileID: 4517857138671634553, guid: 0430fd093eb0b604181fabaed94f52c8,
+      type: 3}
   isReloading: 0
 --- !u!114 &114000011184352806
 MonoBehaviour:
@@ -686,7 +687,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124644}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.205, y: -0.19, z: 0.8}
+  m_LocalPosition: {x: 0.205, y: -0.19, z: 0.989}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 465354}
