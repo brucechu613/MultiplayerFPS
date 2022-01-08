@@ -30,7 +30,8 @@ GameObject:
   - component: {fileID: 6355728554122711254}
   - component: {fileID: 8097004074730167098}
   - component: {fileID: 6623864931921051571}
-  - component: {fileID: 5428801758283264893}
+  - component: {fileID: 244172672363271264}
+  - component: {fileID: 6872724978366930834}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -524,7 +525,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3d7d9ad2307371e47af8b73471840b6e, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -610,7 +611,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5428801758283264893
+--- !u!114 &244172672363271264
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -619,10 +620,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 120524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc0c2aff43b6f9c4283911508b148a61, type: 3}
+  m_Script: {fileID: 11500000, guid: 19978702415674b428450ec7d7ae9f68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 6623864931921051571}
+  syncMode: 0
+  syncInterval: 0.1
+  clip: {fileID: 8300000, guid: 2a93bea9e23a25b4a89a0ed76589d2ad, type: 3}
+  clip2: {fileID: 8300000, guid: e2400196324ef8f43ba49037663a9259, type: 3}
+--- !u!114 &6872724978366930834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3efd4d6a04c3783408856fc6b013f2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  weaponManager: {fileID: 11450446}
 --- !u!1 &123372
 GameObject:
   m_ObjectHideFlags: 0
