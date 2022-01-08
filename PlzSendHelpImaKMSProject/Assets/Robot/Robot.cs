@@ -87,6 +87,7 @@ public class Robot : NetworkBehaviour
     {
         if (!isDead)
         {
+            transform.GetComponent<Rigidbody>().AddForce(0,-100,0,ForceMode.Acceleration);
             if (target != null)
             {
                 transform.LookAt(target.transform);
