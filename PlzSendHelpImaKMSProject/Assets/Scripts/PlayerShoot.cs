@@ -121,8 +121,13 @@ public class PlayerShoot : NetworkBehaviour {
 				CmdPlayerShot(_hit.collider.name, currentWeapon.damage, transform.name);
 			}
 
-			// We hit something, call the OnHit method on the server
-			CmdOnHit(_hit.point, _hit.normal);
+            if (_hit.collider.transform.tag == "Enemy")
+            {
+                CmdPlayerShotEnemy(_hit.collider.transform, transform.name);
+            }
+
+            // We hit something, call the OnHit method on the server
+            CmdOnHit(_hit.point, _hit.normal);
 		}
 
 		if (currentWeapon.bullets <= 0)
@@ -140,5 +145,12 @@ public class PlayerShoot : NetworkBehaviour {
         Player _player = GameManager.GetPlayer(_playerID);
         _player.RpcTakeDamage(_damage, _sourceID);
 	}
+
+    [Command]
+    void CmdPlayerShotEnemy(Transform t, string _sourceID)
+    {
+        Robot e = t.GetComponent<Robot>();
+        e.RpcSetTarget(_sourceID);
+    }
 
 }
