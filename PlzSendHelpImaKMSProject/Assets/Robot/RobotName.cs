@@ -17,7 +17,7 @@ public class RobotName : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        usernameText.text = "Bob";
+        usernameText.text = "·–¶Ú°C•v¶“ØS";
         healthBarFill.localScale = new Vector3(enemy.GetHealthPct(), 1f, 1f);
     }
 
