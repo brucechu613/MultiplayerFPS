@@ -25,12 +25,8 @@ public class JoinGame : MonoBehaviour
 
     void StartButtons()
     {
-        networkManager.networkAddress = input.text;
-        if (!NetworkClient.active)
-        {
-            
-            networkManager.StartClient();
-        }
+        networkManager.networkAddress = input.text == "" ?  "localhost" : input.text;
+        networkManager.StartClient();
         
     }
 }
