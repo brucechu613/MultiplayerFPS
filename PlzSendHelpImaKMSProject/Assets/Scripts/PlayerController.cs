@@ -93,10 +93,10 @@ public class PlayerController : MonoBehaviour {
 
 		//Apply movement
 
-        /*if(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
+        if(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
         {
             _velocity += _zMov * speed * 0.3f * transform.forward;
-        }*/
+        }
 		motor.Move(_velocity);
 
 		//Calculate rotation as a 3D vector (turning around)
