@@ -236,9 +236,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 36492168}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46897ecde17a8f4898b7f99b671145f, type: 3}
+  m_Script: {fileID: 11500000, guid: a1347817507220a4384f3ff6f7c24546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveUnitsPerSecond:
+    value: {x: 0, y: 0, z: 0}
+    space: 1
+  rotateDegreesPerSecond:
+    value: {x: 0, y: 0, z: 180}
+    space: 1
+  ignoreTimescale: 0
 --- !u!114 &36492171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,7 +1108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170, y: -287.5}
+  m_AnchoredPosition: {x: 170, y: -287.84375}
   m_SizeDelta: {x: 340, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &761302751
@@ -1364,7 +1371,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: REGISTER
+  m_Text: "\u6CE8\u518C"
 --- !u!222 &924167690
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1411,7 +1418,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170, y: -327.5}
+  m_AnchoredPosition: {x: 170, y: -327.84375}
   m_SizeDelta: {x: 340, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &966756374
@@ -1575,7 +1582,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170, y: -367.5}
+  m_AnchoredPosition: {x: 170, y: -367.84375}
   m_SizeDelta: {x: 340, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &972000958
@@ -1935,7 +1942,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Username...
+  m_Text: "\u7528\u6237\u6635\u79F0/\u4F1A\u5458\u540D/\u624B\u673A/UC\u53F7"
 --- !u!222 &1031317294
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2301,7 +2308,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Password...
+  m_Text: "\u5BC6\u7801"
 --- !u!222 &1249594994
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2834,7 +2841,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Loading...
+  m_Text: "\u52A0\u8F7D\u4E2D..."
 --- !u!222 &1667452781
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2878,7 +2885,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170, y: -410}
+  m_AnchoredPosition: {x: 170, y: -410.34375}
   m_SizeDelta: {x: 340, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1726546007
@@ -3070,7 +3077,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 170, y: -445.5}
-  m_SizeDelta: {x: 340, y: 16}
+  m_SizeDelta: {x: 340, y: 15.3125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1795970168
 MonoBehaviour:
@@ -3417,7 +3424,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Confirm Password...
+  m_Text: "\u786E\u8BA4\u5BC6\u7801"
 --- !u!222 &1917855999
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3575,7 +3582,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BACK
+  m_Text: "\u56DE\u524D\u9801"
 --- !u!222 &1974511989
 CanvasRenderer:
   m_ObjectHideFlags: 0
