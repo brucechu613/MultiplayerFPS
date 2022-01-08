@@ -6,6 +6,9 @@ using Mirror;
 public class ScopeControl : NetworkBehaviour
 {
     [SerializeField] Animator animator = null;
+    [SerializeField] Camera mainCamera = null;
+    [SerializeField] Camera weaponCamera = null;
+
     bool scoping = false;
     // Update is called once per frame
     void Update()
@@ -15,9 +18,21 @@ public class ScopeControl : NetworkBehaviour
         if (Input.GetKey(KeyCode.Mouse1))
         {
             scoping = true;
+
+            StartCoroutine(changeFOV());
         }
-        else scoping = false;
+        else
+        {
+            scoping = false;
+
+            mainCamera.fieldOfView = 70f;
+        }
 
         animator.SetBool("Scoping", scoping);
+    }
+    IEnumerator changeFOV()
+    {
+        yield return new WaitForSeconds(.15f);
+        mainCamera.fieldOfView = 50f;
     }
 }

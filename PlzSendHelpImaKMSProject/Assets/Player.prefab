@@ -485,6 +485,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   animator: {fileID: 4827735027490851072}
+  mainCamera: {fileID: 2047062}
+  weaponCamera: {fileID: 2058040}
 --- !u!114 &6355728554122711254
 MonoBehaviour:
   m_ObjectHideFlags: 0
