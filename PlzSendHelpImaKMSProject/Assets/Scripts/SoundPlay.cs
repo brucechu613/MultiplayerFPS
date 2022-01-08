@@ -16,7 +16,6 @@ public class SoundPlay :MonoBehaviour
     {
         if (Input.GetKey(KeyCode.F))
         {
-            Debug.Log("F pressed");
             if (isPlaying == false)
             {
                 isPlaying = true;

@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
 		SetJointSettings(jointSpring);
 	}
 
-	void Update ()
+	void FixedUpdate ()
 	{
 		if (PauseMenu.IsOn)
 		{

@@ -11,6 +11,7 @@ public class animationControl : NetworkBehaviour
     float reloadTime = 3.26f;
     bool isReloading = false;
     bool isDancing = false;
+    bool isFiring = false;
     [SerializeField] float acceleration = 5.0f;
     [SerializeField] float deceleration = 5.0f;
     [Header("References")]
@@ -78,6 +79,13 @@ public class animationControl : NetworkBehaviour
                 velocityY = 0;
         }
 
+        //firing
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            isFiring = true;
+        }
+        else isFiring = false;
+
         //reload
         if (Input.GetKey(KeyCode.R))
         {
@@ -92,6 +100,7 @@ public class animationControl : NetworkBehaviour
         animator.SetFloat("velocityX", velocityX);
         animator.SetFloat("velocityZ", velocityZ);
         animator.SetFloat("velocityY", velocityY);
+        animator.SetBool("isFiring", isFiring);
         animator.SetBool("isReloading", isReloading);
         animator.SetBool("isDancing", isDancing);
 
