@@ -10,8 +10,8 @@ public class animationControl : NetworkBehaviour
     float velocityY = 0.0f;
     float reloadTime = 3.26f;
     bool isReloading = false;
-    [SerializeField] float acceleration = 2.0f;
-    [SerializeField] float deceleration = 2.0f;
+    [SerializeField] float acceleration = 5.0f;
+    [SerializeField] float deceleration = 5.0f;
     [Header("References")]
     [SerializeField] CharacterController controller = null;
     [SerializeField]  Animator animator = null;
