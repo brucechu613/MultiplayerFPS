@@ -10,6 +10,7 @@ public class animationControl : NetworkBehaviour
     float velocityY = 0.0f;
     float reloadTime = 3.26f;
     bool isReloading = false;
+    bool isDancing = false;
     [SerializeField] float acceleration = 5.0f;
     [SerializeField] float deceleration = 5.0f;
     [Header("References")]
@@ -82,16 +83,30 @@ public class animationControl : NetworkBehaviour
         {
             StartCoroutine(Reload());
         }
+        //dance
+        if (Input.GetKey(KeyCode.F))
+        {
+            StartCoroutine(Dance());
+        }
 
         animator.SetFloat("velocityX", velocityX);
         animator.SetFloat("velocityZ", velocityZ);
         animator.SetFloat("velocityY", velocityY);
         animator.SetBool("isReloading", isReloading);
+        animator.SetBool("isDancing", isDancing);
+
     }
+
     IEnumerator Reload()
     {
         isReloading = true;
         yield return new WaitForSeconds(reloadTime);
         isReloading = false;
+    }
+    IEnumerator Dance()
+    {
+        isDancing = true;
+        yield return new WaitForSeconds(6.2f);
+        isDancing = false;
     }
 }

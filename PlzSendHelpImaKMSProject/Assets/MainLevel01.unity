@@ -4393,7 +4393,6 @@ GameObject:
   - component: {fileID: 815377859}
   - component: {fileID: 815377858}
   - component: {fileID: 815377857}
-  - component: {fileID: 815377855}
   - component: {fileID: 815377860}
   m_Layer: 0
   m_Name: SceneCamera
@@ -4402,14 +4401,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &815377855
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 815377854}
-  m_Enabled: 1
 --- !u!124 &815377857
 Behaviour:
   m_ObjectHideFlags: 0
