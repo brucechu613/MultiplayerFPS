@@ -64,18 +64,18 @@ public class UserAccountManager : MonoBehaviour {
 
 	IEnumerator sendSendDataRequest(string username, string password, string data)
 	{
-		IEnumerator eee = DCF.SetUserData(username, password, data);
-		while (eee.MoveNext())
+		IEnumerator e = DCF.SetUserData(username, password, data);
+		while (e.MoveNext())
 		{
-			yield return eee.Current;
+			yield return e.Current;
 		}
-		WWW returneddd = eee.Current as WWW;
-		if (returneddd.text == "ContainsUnsupportedSymbol")
+		string response = e.Current as string;
+		if (response == "ContainsUnsupportedSymbol")
 		{
 			//One of the parameters contained a - symbol
 			Debug.Log("Data Upload Error. Could be a server error. To check try again, if problem still occurs, contact us.");
 		}
-		if (returneddd.text == "Error")
+		if (response == "Error")
 		{
 			//Error occurred. For more information of the error, DC.Login could
 			//be used with the same username and password
@@ -102,8 +102,8 @@ public class UserAccountManager : MonoBehaviour {
 		{
 			yield return e.Current;
 		}
-		string returnedddd = e.Current as string;
-		if (returnedddd == "Error")
+		string response = e.Current as string;
+		if (response == "Error")
 		{
 			//Error occurred. For more information of the error, DC.Login could
 			//be used with the same username and password
@@ -111,7 +111,7 @@ public class UserAccountManager : MonoBehaviour {
 		}
 		else
 		{
-			if (returnedddd == "ContainsUnsupportedSymbol")
+			if (response == "ContainsUnsupportedSymbol")
 			{
 				//One of the parameters contained a - symbol
 				Debug.Log("Get Data Error: Contains Unsupported Symbol '-'");
@@ -119,7 +119,7 @@ public class UserAccountManager : MonoBehaviour {
 			else
 			{
 				//Data received in returned.text variable
-				string DataRecieved = returnedddd;
+				string DataRecieved = response;
 				data = DataRecieved;
 			}
 		}

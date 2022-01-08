@@ -1,4 +1,4 @@
-//-------------------------------------
+    //-------------------------------------
 // Responsible for setting up the player.
 // This includes adding/removing him correctly on the network.
 //-------------------------------------

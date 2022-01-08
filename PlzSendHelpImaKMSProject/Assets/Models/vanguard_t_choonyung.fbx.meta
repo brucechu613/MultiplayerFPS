@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e5c9687cae3c40b4caedd9ed85772fb4
+guid: e9eacfec6226d0547b83fedeac7f3817
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -11,27 +11,27 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: VanguardBodyMat
-    second: {fileID: 2100000, guid: 08b8cee5bfa1a674b986b10ae6f475fe, type: 2}
+    second: {fileID: 2100000, guid: 94f7c933750808b48afbb26316a7cccb, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Vanguard_VisorMat
-    second: {fileID: 2100000, guid: 8d6f61b791b006042b5ea3af3e0787dc, type: 2}
+    second: {fileID: 2100000, guid: 8befc241f6c8a8a45aebb995bbcafcf0, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: vanguard_diffuse
-    second: {fileID: 2800000, guid: 146859cfe753a284b8a1da3f0abcc54c, type: 3}
+    second: {fileID: 2800000, guid: e7bf9bb44f9c6be4687faf3b830e652b, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: vanguard_normal
-    second: {fileID: 2800000, guid: c8d7dbc05ed18ae4c803c6e70e319cf9, type: 3}
+    second: {fileID: 2800000, guid: df81a3b59e073f84880db262740da7da, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: vanguard_specular
-    second: {fileID: 2800000, guid: 08028f6de0cd9b3438fa05d1700b1d5a, type: 3}
+    second: {fileID: 2800000, guid: 833be285b72973e4d8c9001e2c5be2be, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -63,9 +63,9 @@ public class WeaponManager : NetworkBehaviour {
 
 		isReloading = true;
 
-		CmdOnReload();
+        CmdOnReload();
 
-		yield return new WaitForSeconds(currentWeapon.reloadTime);
+        yield return new WaitForSeconds(currentWeapon.reloadTime);
 
 		currentWeapon.bullets = currentWeapon.maxBullets;
 
