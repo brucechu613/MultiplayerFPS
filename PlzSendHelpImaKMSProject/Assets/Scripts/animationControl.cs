@@ -10,7 +10,8 @@ public class animationControl : NetworkBehaviour
     float velocityY = 0.0f;
     float reloadTime = 3.26f;
     bool isReloading = false;
-    bool isDancing = false;
+    public bool isDancing = false;
+    public bool isOrange = false;
     bool isFiring = false;
     [SerializeField] float acceleration = 5.0f;
     [SerializeField] float deceleration = 5.0f;
@@ -92,9 +93,15 @@ public class animationControl : NetworkBehaviour
             StartCoroutine(Reload());
         }
         //dance
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKey(KeyCode.F)&&!isDancing)
         {
+            isDancing = true;
             StartCoroutine(Dance());
+        }
+        if (Input.GetKey(KeyCode.G)&&!isOrange)
+        {
+            isOrange = true;
+            StartCoroutine(Orange());
         }
 
         animator.SetFloat("velocityX", velocityX);
@@ -103,6 +110,7 @@ public class animationControl : NetworkBehaviour
         animator.SetBool("isFiring", isFiring);
         animator.SetBool("isReloading", isReloading);
         animator.SetBool("isDancing", isDancing);
+        animator.SetBool("isOrange", isOrange);
 
     }
 
@@ -114,8 +122,12 @@ public class animationControl : NetworkBehaviour
     }
     IEnumerator Dance()
     {
-        isDancing = true;
-        yield return new WaitForSeconds(6.2f);
+        yield return new WaitForSeconds(6.8f);
         isDancing = false;
+    }
+    IEnumerator Orange()
+    {
+        yield return new WaitForSeconds(4.1605f);
+        isOrange = false;
     }
 }

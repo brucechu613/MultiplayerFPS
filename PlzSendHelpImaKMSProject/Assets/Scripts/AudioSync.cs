@@ -7,7 +7,7 @@ using Mirror;
 public class AudioSync : NetworkBehaviour
 {
     private AudioSource audioSource;
-    public AudioClip clip,clip2;
+    public AudioClip clip,clip2,clip3;
     
     void Start()
     {
@@ -32,5 +32,7 @@ public class AudioSync : NetworkBehaviour
             audioSource.PlayOneShot(clip);
         if (ID == 2)
             audioSource.PlayOneShot(clip2);
+        if (ID == 3)
+            audioSource.PlayOneShot(clip3);
     }
 }
