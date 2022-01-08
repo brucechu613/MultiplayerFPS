@@ -2100,7 +2100,7 @@ MonoBehaviour:
   deathEffect: {fileID: 126342, guid: 403bbd3bfa289ac4f8dcaa985edb435f, type: 3}
   animationPara: {fileID: 8297807789488046503}
   distance: 1
-  speed: 3
+  speed: 5
 --- !u!114 &8297807789488046503
 MonoBehaviour:
   m_ObjectHideFlags: 0
