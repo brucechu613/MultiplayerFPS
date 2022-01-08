@@ -83,7 +83,7 @@ public class Robot : NetworkBehaviour
     private float speed = 3f;
 
     [Server]
-    void Update()
+    void FixedUpdate()
     {
         if (!isDead)
         {
