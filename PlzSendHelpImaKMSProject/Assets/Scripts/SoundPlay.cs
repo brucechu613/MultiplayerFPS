@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundPlay : MonoBehaviour
+
+public class SoundPlay :MonoBehaviour
 {
-    [SerializeField] AudioSource source = null;
+    [SerializeField] AudioSource source=null;
     bool isPlaying = false;
 
     private void Start()
@@ -24,10 +25,12 @@ public class SoundPlay : MonoBehaviour
             }
         }
     }
-
+    
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(6.2f);
         isPlaying = false;
     }
+
+
 }
