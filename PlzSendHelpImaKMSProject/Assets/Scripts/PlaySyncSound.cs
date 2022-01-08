@@ -7,9 +7,11 @@ using Mirror;
 public class PlaySyncSound : NetworkBehaviour
 {
     [SerializeField] private WeaponManager weaponManager;
+    [SerializeField] private animationControl animationControl;
     bool isPlaying = false;
     bool isFiring = false;
-    float musicDuration = 6.22f;
+    bool isOrange = false;
+    float musicDuration = 6.2f;
     float shotsDuration = 0.1f;
     private AudioSync audioSync;
     void Start()
@@ -22,7 +24,7 @@ public class PlaySyncSound : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            if (Input.GetKey(KeyCode.F)&&!isPlaying)
+            if (Input.GetKey(KeyCode.F)&&!isPlaying&&!animationControl.isOrange)
             {
                 audioSync.PlaySound(1);
                 isPlaying = true;
@@ -33,6 +35,12 @@ public class PlaySyncSound : NetworkBehaviour
                 audioSync.PlaySound(2);
                 isFiring = true;
                 StartCoroutine(shotWait());
+            }
+            if (Input.GetKey(KeyCode.G)&&!isOrange&&!animationControl.isDancing)
+            {
+                audioSync.PlaySound(3);
+                isOrange = true;
+                StartCoroutine(orangeWait());
             }
         }
         
@@ -46,5 +54,10 @@ public class PlaySyncSound : NetworkBehaviour
     {
         yield return new WaitForSeconds(shotsDuration);
         isFiring= false;
+    }
+    IEnumerator orangeWait()
+    {
+        yield return new WaitForSeconds(4.01f);
+        isOrange= false;
     }
 }

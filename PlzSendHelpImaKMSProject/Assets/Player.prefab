@@ -454,6 +454,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  isDancing: 0
+  isOrange: 0
   acceleration: 5
   deceleration: 5
   controller: {fileID: 5479335261062523958}
@@ -627,6 +629,7 @@ MonoBehaviour:
   syncInterval: 0.1
   clip: {fileID: 8300000, guid: 2a93bea9e23a25b4a89a0ed76589d2ad, type: 3}
   clip2: {fileID: 8300000, guid: e2400196324ef8f43ba49037663a9259, type: 3}
+  clip3: {fileID: 8300000, guid: 409907d252bc21d449b32785525570f6, type: 3}
 --- !u!114 &6872724978366930834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,6 +645,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   weaponManager: {fileID: 11450446}
+  animationControl: {fileID: 5870080749487302628}
 --- !u!1 &123372
 GameObject:
   m_ObjectHideFlags: 0
