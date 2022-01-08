@@ -110,13 +110,15 @@ public class Player : NetworkBehaviour {
 	private void Die(string _sourceID)
 	{
 		isDead = true;
-
-		Player sourcePlayer = GameManager.GetPlayer(_sourceID);
-		if (sourcePlayer != null)
-		{
-			sourcePlayer.kills++;
-			GameManager.instance.onPlayerKilledCallback.Invoke(username, sourcePlayer.username);
-		}
+        if (_sourceID != "")
+        {
+            Player sourcePlayer = GameManager.GetPlayer(_sourceID);
+            if (sourcePlayer != null)
+            {
+                sourcePlayer.kills++;
+                GameManager.instance.onPlayerKilledCallback.Invoke(username, sourcePlayer.username);
+            }
+        }
 
 		deaths++;
 
