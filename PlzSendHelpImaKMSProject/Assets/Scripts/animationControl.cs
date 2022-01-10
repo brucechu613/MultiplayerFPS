@@ -93,12 +93,12 @@ public class animationControl : NetworkBehaviour
             StartCoroutine(Reload());
         }
         //dance
-        if (Input.GetKey(KeyCode.F)&&!isDancing)
+        if (Input.GetKey(KeyCode.F)&&!isDancing&&!isOrange)
         {
             isDancing = true;
             StartCoroutine(Dance());
         }
-        if (Input.GetKey(KeyCode.G)&&!isOrange)
+        if (Input.GetKey(KeyCode.G)&&!isOrange&&!isDancing)
         {
             isOrange = true;
             StartCoroutine(Orange());
