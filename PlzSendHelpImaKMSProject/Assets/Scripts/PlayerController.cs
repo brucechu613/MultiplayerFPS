@@ -11,12 +11,12 @@ public class PlayerController : MonoBehaviour {
 	private float lookSensitivity = 5f;
 
 	[SerializeField]
-	private float thrusterForce = 1300f;
+	private float thrusterForce = 1000f;
 
 	[SerializeField]
 	private float thrusterFuelBurnSpeed = 1f;
 	[SerializeField]
-	private float thrusterFuelRegenSpeed = 1f;
+	private float thrusterFuelRegenSpeed = 0.3f;
 	private float thrusterFuelAmount = 1f;
 
 	public float GetThrusterFuelAmount ()
@@ -89,14 +89,9 @@ public class PlayerController : MonoBehaviour {
 		Vector3 _velocity = (_movHorizontal + _movVertical) * speed;
 
 		// Animate movement
-		//animator.SetFloat("ForwardVelocity", _zMov);
+		animator.SetFloat("ForwardVelocity", _zMov);
 
 		//Apply movement
-
-        if(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
-        {
-            _velocity += _zMov * speed * 0.3f * transform.forward;
-        }
 		motor.Move(_velocity);
 
 		//Calculate rotation as a 3D vector (turning around)
